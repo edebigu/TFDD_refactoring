@@ -80,9 +80,8 @@ public class Game {
         if (this.waste.empty()) {
             return Error.EMPTY_WASTE;
         }
-        Card card = this.waste.peek();
         Pile pile = this.piles.get(pileIndex);
-        if (!pile.fitsIn(card)) {
+        if (!pile.fitsIn(this.waste.peek())) {
             return Error.NO_FIT_PILE;
         }
         pile.addToTop(Arrays.asList(this.waste.pop()));

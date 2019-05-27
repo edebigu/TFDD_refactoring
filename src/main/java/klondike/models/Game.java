@@ -53,9 +53,8 @@ public class Game {
         if (this.waste.empty()) {
             return Error.EMPTY_WASTE;
         }
-        Card card = this.waste.peek();
         Foundation foundation = this.foundations.get(suit);
-        if (!foundation.fitsIn(card)) {
+        if (!foundation.fitsIn(this.waste.peek())) {
             return Error.NO_FIT_FOUNDATION;
         }
         foundation.getCards().push(this.waste.pop());

@@ -91,7 +91,6 @@ public class Game {
         assert suit != null;
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
         Foundation foundation = this.foundations.get(suit);
-      
         if (foundation.getCards().empty()) {
             return Error.EMPTY_FOUNDATION;
         }
@@ -107,11 +106,12 @@ public class Game {
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
         assert suit != null;
         Pile pile = this.piles.get(pileIndex);
-        Foundation foundation = this.foundations.get(suit);
+        
         if (pile.getCards().empty()) {
             return Error.EMPTY_PILE;
         }
         Card card = pile.getTop(1).get(0);
+        Foundation foundation = this.foundations.get(suit);
         if (!foundation.fitsIn(card)) {
             return Error.NO_FIT_FOUNDATION;
         }
@@ -128,10 +128,11 @@ public class Game {
             return Error.SAME_PILE;
         }
         Pile originPile = this.piles.get(originIndex);
-        Pile destinationPile = this.piles.get(destinationIndex);
+        
         if (originPile.numberOfFaceUpCards() < numberOfCards) {
             return Error.NO_ENOUGH_CARDS_PILE;
         }
+        Pile destinationPile = this.piles.get(destinationIndex);
         List<Card> cards = originPile.getTop(numberOfCards);
         if (!destinationPile.fitsIn(cards.get(cards.size() - 1))) {
             return Error.NO_FIT_PILE;

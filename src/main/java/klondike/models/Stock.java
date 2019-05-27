@@ -25,10 +25,7 @@ public class Stock {
         this.cards.removeAll(cardsToReturn);
         return cardsToReturn;
     }
-    
-    public Card peek() {
-        return this.cards.peek();
-    }
+   
     
     public Card pop() {
         return this.cards.pop();

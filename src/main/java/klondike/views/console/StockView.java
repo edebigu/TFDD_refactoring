@@ -16,6 +16,6 @@ public class StockView {
         if (this.stock.empty())
             IO.writeln(Message.EMPTY);
         else
-            new CardView(this.stock.peek()).writeln();
+            new CardView(this.stock.getCards().peek()).writeln();
     }
 }

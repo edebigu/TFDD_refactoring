@@ -53,7 +53,7 @@ public class StockTest{
 	public void testPushWithEmpty() {
 		Stock stock = new Stock();
 		stock.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), stock.peek());
+		assertEquals(this.getCards().get(0), stock.getCards().peek());
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class StockTest{
 		Stock stock = new Stock();
 		stock.push(this.getCards().get(0));
 		stock.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), stock.peek());
+		assertEquals(this.getCards().get(1), stock.getCards().peek());
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class StockTest{
 		stock.push(this.getCards().get(0));
 		stock.push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), stock.pop());
-		assertEquals(this.getCards().get(0), stock.peek());
+		assertEquals(this.getCards().get(0), stock.getCards().peek());
 	}
 
 	private void assertDifferentCards(List<Card> cards) {

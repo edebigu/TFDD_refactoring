@@ -75,9 +75,9 @@ public class GameTest {
 	@Test
 	public void testMoveFromStockToWaste() {
 		Game game = new Game();
-		Card card = game.getStock().peek();
+		Card card = game.getStock().getCards().peek();
 		assertEquals(null, game.moveFromStockToWaste());
-		assertNotEquals(card, game.getStock().peek());
+		assertNotEquals(card, game.getStock().getCards().peek());
 		assertEquals(card, game.getWaste().peek());
 	}
 

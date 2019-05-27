@@ -42,7 +42,7 @@ public class GameTest {
 		for (int i = 0; i < piles.size(); i++) {
 			Pile pile = piles.get(i);
 			for (int j = 0; j < i + 1; j++) {
-				Card card = pile.peek();
+				Card card = pile.getCards().peek();
 				pile.removeTop(1);
 				assertTrue(card.isFacedUp());
 			}
@@ -189,16 +189,16 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.KING);
 		this.setEmptyPile(game, 0);
 		assertEquals(null, game.moveFromWasteToPile(0));
-		assertEquals(card, game.getPiles().get(0).peek());
+		assertEquals(card, game.getPiles().get(0).getCards().peek());
 		assertTrue(game.getWaste().empty());
 	}
 
 	@Test
 	public void testMoveFromWasteToPileWithEmptyWaste() {
 		Game game = new Game();
-		Card card = game.getPiles().get(0).peek();
+		Card card = game.getPiles().get(0).getCards().peek();
 		assertEquals(Error.EMPTY_WASTE, game.moveFromWasteToPile(0));
-		assertEquals(card, game.getPiles().get(0).peek());
+		assertEquals(card, game.getPiles().get(0).getCards().peek());
 		assertTrue(game.getWaste().empty());
 	}
 
@@ -239,7 +239,7 @@ public class GameTest {
 			ordinalNumber -= 1;
 			ordinalSuit = (ordinalSuit + 1) % Suit.values().length;
 		} while (ordinalNumber >= number.ordinal());
-		return pile.peek();
+		return pile.getCards().peek();
 	}
 
 }

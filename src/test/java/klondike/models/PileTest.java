@@ -40,7 +40,7 @@ public class PileTest {
 	public void testPushWithEmpty() {
 		Pile pile = new PileBuilder().build();
 		pile.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), pile.peek());
+		assertEquals(this.getCards().get(0), pile.getCards().peek());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class PileTest {
 		Pile pile = new PileBuilder().build();
 		pile.push(this.getCards().get(0));
 		pile.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), pile.peek());
+		assertEquals(this.getCards().get(1), pile.getCards().peek());
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class PileTest {
 		pile.push(this.getCards().get(0));
 		pile.push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), pile.pop());
-		assertEquals(this.getCards().get(0), pile.peek());
+		assertEquals(this.getCards().get(0), pile.getCards().peek());
 	}
 
 	@Test
@@ -120,7 +120,7 @@ public class PileTest {
 	public void testAddToTop() {
 		Pile pile = new PileBuilder().card()
 				.card(new CardBuilder().number(Number.TEN).suit(Suit.DIAMONDS).build()).build();
-		Card topCard = pile.peek();
+		Card topCard = pile.getCards().peek();
 		List<Card> cards = new CardListBuilder()
 				.card(new CardBuilder().number(Number.NINE).suit(Suit.CLOVERS).facedUp().build())
 				.card(new CardBuilder().number(Number.EIGHT).suit(Suit.DIAMONDS).facedUp().build())

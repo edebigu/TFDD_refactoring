@@ -82,9 +82,4 @@ public class Pile{
 		return this.number;
 	}
 	
-
-    public Card peek() {
-        return this.cards.peek();
-    }
-
 }

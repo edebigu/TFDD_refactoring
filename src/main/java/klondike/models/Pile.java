@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Pile extends CardStack {
+public class Pile{
 
 	private final int number;
+	
+	private  Stack<Card> cards;
 
 	private int numberOfFaceUpCards;
 
 	public Pile(int number, List<Card> cards) {
 		assert cards.size() > 0;
+		this.cards = new Stack<Card>();
 		this.number = number;
 		this.numberOfFaceUpCards = 0;
 		this.cards.addAll(cards);
 		this.flipFirstCard();
 	}
 
-	@Override
 	public void push(Card card) {
 		assert this.fitsIn(card);
-		super.push(card);
+		this.cards.push(card);
 		this.numberOfFaceUpCards++;
 	}
 
-	@Override
 	public Card pop() {
 		this.numberOfFaceUpCards--;
-		return super.pop();
+		return this.cards.pop();
 	}
 
 	private void flipFirstCard() {
@@ -80,4 +81,10 @@ public class Pile extends CardStack {
 	public int getNumber() {
 		return this.number;
 	}
+	
+
+    public Card peek() {
+        return this.cards.peek();
+    }
+
 }

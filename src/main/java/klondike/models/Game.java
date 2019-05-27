@@ -8,7 +8,7 @@ public class Game {
 
     private Stock stock;
 
-    private Waste waste;
+    private Stack<Card> waste;
 
     private Map<Suit, Foundation> foundations;
 
@@ -20,7 +20,7 @@ public class Game {
 
     public void clear() {
         this.stock = new Stock();
-        this.waste = new Waste();
+        this.waste = new Stack<Card>();
         this.foundations = new HashMap<Suit, Foundation>();
         for (Suit suit : Suit.values()) {
             this.foundations.put(suit, new Foundation(suit));
@@ -148,7 +148,7 @@ public class Game {
         return this.stock;
     }
 
-    public Waste getWaste() {
+    public Stack<Card> getWaste() {
         return this.waste;
     }
 

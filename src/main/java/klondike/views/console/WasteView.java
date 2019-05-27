@@ -1,13 +1,15 @@
 package klondike.views.console;
 
-import klondike.models.Waste;
+import java.util.Stack;
+
+import klondike.models.Card;
 import klondike.utils.IO;
 
 public class WasteView {
 
-    private final Waste waste;
+    private final Stack<Card> waste;
 
-    WasteView(Waste waste) {
+    WasteView(Stack<Card> waste) {
         this.waste = waste;
     }
 

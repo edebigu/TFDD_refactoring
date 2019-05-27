@@ -5,8 +5,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 import org.junit.Test;
 
@@ -66,6 +68,59 @@ public class GameTest {
 		}
 		return cardsInPiles;
 	}
+	
+	private List<Card> getCards(){
+		List<Card> cards = new ArrayList<Card>();
+		cards.add(new CardBuilder().build());
+		cards.add(new CardBuilder().build());
+		return cards;
+	}
+	
+	@Test
+	public void testEmptyWithEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		assertTrue(waste.empty());
+	}
+	
+	@Test
+	public void testEmptyWithNotEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		waste.push(this.getCards().get(0));
+		assertFalse(waste.empty());
+	}
+
+	@Test
+	public void testPushWithEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		waste.push(this.getCards().get(0));
+		assertEquals(this.getCards().get(0), waste.peek());
+	}
+	
+	@Test
+	public void testPushWithNotEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		waste.push(this.getCards().get(0));
+		waste.push(this.getCards().get(1));
+		assertEquals(this.getCards().get(1), waste.peek());
+	}
+
+	@Test
+	public void testPopEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		waste.push(this.getCards().get(0));
+		assertEquals(this.getCards().get(0), waste.pop());
+		assertTrue(waste.empty());
+	}
+	
+	@Test
+	public void testPopNotEmpty() {
+		 Stack<Card> waste = new  Stack<Card>();
+		waste.push(this.getCards().get(0));
+		waste.push(this.getCards().get(1));
+		assertEquals(this.getCards().get(1), waste.pop());
+		assertEquals(this.getCards().get(0), waste.peek());
+	}
+	
 
 	@Test
 	public void testIsFinished() {

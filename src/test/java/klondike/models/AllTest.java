@@ -8,7 +8,6 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ 
 	SuitTest.class, 
 	CardTest.class,
-	WasteTest.class, 
 	StockTest.class,
 	PileTest.class,
 	FoundationTest.class,

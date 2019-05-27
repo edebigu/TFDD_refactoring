@@ -41,7 +41,7 @@ public class Game {
     }
 
     public Error moveFromStockToWaste() {
-        if (this.stock.empty()) {
+        if (this.stock.getCards().empty()) {
             return Error.EMPTY_STOCK;
         }
         this.waste.push(this.stock.getCards().pop().flip());
@@ -63,7 +63,7 @@ public class Game {
     }
 
     public Error moveFromWasteToStock() {
-        if (!this.stock.empty()) {
+        if (!this.stock.getCards().empty()) {
             return Error.NO_EMPTY_STOCK;
         }
         if (this.waste.empty()) {

@@ -25,11 +25,6 @@ public class Stock {
         this.cards.removeAll(cardsToReturn);
         return cardsToReturn;
     }
-   
-    
-    public boolean empty() {
-        return this.cards.empty();
-    }
     
     public void push(Card card) {
         this.cards.push(card);

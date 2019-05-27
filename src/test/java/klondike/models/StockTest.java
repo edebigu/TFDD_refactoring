@@ -39,14 +39,14 @@ public class StockTest{
 	@Test
 	public void testEmptyWithEmpty() {
 		Stock stock = new EmptyStockBuilder().build();
-		assertTrue(stock.empty());
+		assertTrue(stock.getCards().empty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Stock stock = new Stock();
 		stock.push(this.getCards().get(0));
-		assertFalse(stock.empty());
+		assertFalse(stock.getCards().empty());
 	}
 
 	@Test
@@ -69,7 +69,7 @@ public class StockTest{
 		Stock stock = new EmptyStockBuilder().build();
 		stock.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), stock.getCards().pop());
-		assertTrue(stock.empty());
+		assertTrue(stock.getCards().empty());
 	}
 	
 	@Test
@@ -122,7 +122,7 @@ public class StockTest{
 		Stock stock = new Stock();
 		List<Card> cardList = stock.takeTop(StockTest.NUMBER_CARDS);
 		assertEquals(StockTest.NUMBER_CARDS, cardList.size());
-		assertTrue(stock.empty());
+		assertTrue(stock.getCards().empty());
 	}
 	
 }

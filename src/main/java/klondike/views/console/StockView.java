@@ -13,7 +13,7 @@ public class StockView {
 
     public void writeln() {
         IO.write(Message.STOCK_TITLE);
-        if (this.stock.empty())
+        if (this.stock.getCards().empty())
             IO.writeln(Message.EMPTY);
         else
             new CardView(this.stock.getCards().peek()).writeln();

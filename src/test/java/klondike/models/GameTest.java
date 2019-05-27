@@ -55,7 +55,7 @@ public class GameTest {
 			Card card = stock.getCards().pop();
 			assertFalse(card.isFacedUp());
 		}
-		assertTrue(stock.empty());
+		assertTrue(stock.getCards().empty());
 	}
 
 	private int cardsInStock(Game game) {
@@ -90,7 +90,7 @@ public class GameTest {
 
 	private void setEmptyStock(Game game) {
 		Stock stock = game.getStock();
-		while (!stock.empty()) {
+		while (!stock.getCards().empty()) {
 			stock.getCards().pop();
 		}
 	}

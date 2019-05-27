@@ -229,17 +229,19 @@ public class GameTest {
 	private Card setPile(Game game, int position, Number number, Suit suit) {
 		Pile pile = game.getPiles().get(position);
 		while (!pile.getCards().empty()) {
-			pile.removeTop(1);
+			pile.removeTop(1);;
 		}
 		int ordinalNumber = Number.values().length - 1;
 		int ordinalSuit = 0;
+		List<Card> cards = new ArrayList<Card>();
 		do {
-			pile.push(new CardBuilder().number(Number.values()[ordinalNumber]).suit(Suit.values()[ordinalSuit])
+			cards.add(new CardBuilder().number(Number.values()[ordinalNumber]).suit(Suit.values()[ordinalSuit])
 					.facedUp().build());
 			ordinalNumber -= 1;
 			ordinalSuit = (ordinalSuit + 1) % Suit.values().length;
 		} while (ordinalNumber >= number.ordinal());
-		return pile.getCards().peek();
+		pile.addToTop(cards);
+		return pile.getTop(1).get(0);
 	}
 
 }

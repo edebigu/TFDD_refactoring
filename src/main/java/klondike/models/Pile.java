@@ -21,12 +21,6 @@ public class Pile{
 		this.flipFirstCard();
 	}
 
-	public void push(Card card) {
-		assert this.fitsIn(card);
-		this.cards.push(card);
-		this.numberOfFaceUpCards++;
-	}
-
 	private void flipFirstCard() {
 		assert !this.cards.empty() && this.numberOfFaceUpCards == 0 && !this.cards.peek().isFacedUp();
 		this.cards.peek().flip();
@@ -46,6 +40,7 @@ public class Pile{
 
 	public void addToTop(List<Card> cards) {
 		assert cards != null;
+		assert this.fitsIn(cards.get(0));
 		this.cards.addAll(cards);
 		this.numberOfFaceUpCards += cards.size();
 	}

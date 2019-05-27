@@ -42,4 +42,8 @@ public class Foundation  {
     public Card pop() {
         return this.cards.pop();
     }
+    
+	public Stack<Card> getCards() {
+		return cards;
+	}
 }

@@ -25,5 +25,10 @@ public class Waste {
     public void push(Card card) {
     	this.cards.push(card);
     }
+
+	public Stack<Card> getCards() {
+		return cards;
+	}
+
 	
 }

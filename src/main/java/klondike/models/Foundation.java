@@ -35,9 +35,6 @@ public class Foundation  {
         return this.cards.peek();
     }
     
-    public void push(Card card) {
-        this.cards.push(card);
-    }
     
 	public Stack<Card> getCards() {
 		return cards;

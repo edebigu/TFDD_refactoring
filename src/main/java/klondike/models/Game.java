@@ -58,7 +58,7 @@ public class Game {
         if (!foundation.fitsIn(card)) {
             return Error.NO_FIT_FOUNDATION;
         }
-        foundation.push(this.waste.pop());
+        foundation.getCards().push(this.waste.pop());
         return null;
     }
 
@@ -117,7 +117,7 @@ public class Game {
         if (!foundation.fitsIn(card)) {
             return Error.NO_FIT_FOUNDATION;
         }
-        foundation.push(card);
+        foundation.getCards().push(card);
         pile.removeTop(1);
         return null;
     }

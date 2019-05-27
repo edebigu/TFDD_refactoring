@@ -15,7 +15,7 @@ public class CompleteGameBuilder {
 		for(int i=0; i< Suit.values().length; i++) {
 			Foundation foundation = foundations.get(Suit.values()[i]);
 			for(int j=0; j<Number.values().length; j++) {
-				foundation.push(new CardBuilder().number(Number.values()[i]).build());
+				foundation.getCards().push(new CardBuilder().number(Number.values()[i]).build());
 			}
 		}
 		return game;

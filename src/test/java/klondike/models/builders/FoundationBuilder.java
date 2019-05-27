@@ -31,7 +31,7 @@ public class FoundationBuilder {
 	public Foundation build() {
 		Foundation foundation = new Foundation(this.suit);
 		for(Card card: this.cards) {
-			foundation.push(card);
+			foundation.getCards().push(card);
 		}
 		return foundation;
 	}

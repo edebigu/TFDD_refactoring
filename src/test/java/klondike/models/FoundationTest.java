@@ -34,29 +34,29 @@ public class FoundationTest {
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		foundation.push(this.getCards().get(0));
+		foundation.getCards().push(this.getCards().get(0));
 		assertFalse(foundation.empty());
 	}
 
 	@Test
 	public void testPushWithEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		foundation.push(this.getCards().get(0));
+		foundation.getCards().push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), foundation.peek());
 	}
 	
 	@Test
 	public void testPushWithNotEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		foundation.push(this.getCards().get(0));
-		foundation.push(this.getCards().get(1));
+		foundation.getCards().push(this.getCards().get(0));
+		foundation.getCards().push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), foundation.peek());
 	}
 
 	@Test
 	public void testPopEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		foundation.push(this.getCards().get(0));
+		foundation.getCards().push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), foundation.getCards().pop());
 		assertTrue(foundation.empty());
 	}
@@ -64,8 +64,8 @@ public class FoundationTest {
 	@Test
 	public void testPopNotEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		foundation.push(this.getCards().get(0));
-		foundation.push(this.getCards().get(1));
+		foundation.getCards().push(this.getCards().get(0));
+		foundation.getCards().push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), foundation.getCards().pop());
 		assertEquals(this.getCards().get(0), foundation.peek());
 	}

@@ -52,7 +52,7 @@ public class GameTest {
 		int cardsInPiles = this.cardsInStock(game);
 		Stock stock = game.getStock();
 		for (int i = 0; i < Number.values().length * Suit.values().length - cardsInPiles; i++) {
-			Card card = stock.pop();
+			Card card = stock.getCards().pop();
 			assertFalse(card.isFacedUp());
 		}
 		assertTrue(stock.empty());
@@ -91,7 +91,7 @@ public class GameTest {
 	private void setEmptyStock(Game game) {
 		Stock stock = game.getStock();
 		while (!stock.empty()) {
-			stock.pop();
+			stock.getCards().pop();
 		}
 	}
 

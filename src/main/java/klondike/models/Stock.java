@@ -27,10 +27,6 @@ public class Stock {
     }
    
     
-    public Card pop() {
-        return this.cards.pop();
-    }
-    
     public boolean empty() {
         return this.cards.empty();
     }

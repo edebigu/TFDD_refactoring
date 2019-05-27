@@ -68,7 +68,7 @@ public class StockTest{
 	public void testPopEmpty() {
 		Stock stock = new EmptyStockBuilder().build();
 		stock.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), stock.pop());
+		assertEquals(this.getCards().get(0), stock.getCards().pop());
 		assertTrue(stock.empty());
 	}
 	
@@ -77,7 +77,7 @@ public class StockTest{
 		Stock stock = new Stock();
 		stock.push(this.getCards().get(0));
 		stock.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), stock.pop());
+		assertEquals(this.getCards().get(1), stock.getCards().pop());
 		assertEquals(this.getCards().get(0), stock.getCards().peek());
 	}
 

@@ -44,7 +44,7 @@ public class Game {
         if (this.stock.empty()) {
             return Error.EMPTY_STOCK;
         }
-        this.waste.push(this.stock.pop().flip());
+        this.waste.push(this.stock.getCards().pop().flip());
         return null;
     }
 

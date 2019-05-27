@@ -70,7 +70,7 @@ public class Game {
             return Error.EMPTY_WASTE;
         }
         while (!this.waste.empty()) {
-            this.stock.push(this.waste.pop().flip());
+            this.stock.getCards().push(this.waste.pop().flip());
         }
         return null;
     }

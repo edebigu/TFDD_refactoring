@@ -45,29 +45,29 @@ public class StockTest{
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Stock stock = new Stock();
-		stock.push(this.getCards().get(0));
+		stock.getCards().push(this.getCards().get(0));
 		assertFalse(stock.getCards().empty());
 	}
 
 	@Test
 	public void testPushWithEmpty() {
 		Stock stock = new Stock();
-		stock.push(this.getCards().get(0));
+		stock.getCards().push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), stock.getCards().peek());
 	}
 	
 	@Test
 	public void testPushWithNotEmpty() {
 		Stock stock = new Stock();
-		stock.push(this.getCards().get(0));
-		stock.push(this.getCards().get(1));
+		stock.getCards().push(this.getCards().get(0));
+		stock.getCards().push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), stock.getCards().peek());
 	}
 
 	@Test
 	public void testPopEmpty() {
 		Stock stock = new EmptyStockBuilder().build();
-		stock.push(this.getCards().get(0));
+		stock.getCards().push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), stock.getCards().pop());
 		assertTrue(stock.getCards().empty());
 	}
@@ -75,8 +75,8 @@ public class StockTest{
 	@Test
 	public void testPopNotEmpty() {
 		Stock stock = new Stock();
-		stock.push(this.getCards().get(0));
-		stock.push(this.getCards().get(1));
+		stock.getCards().push(this.getCards().get(0));
+		stock.getCards().push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), stock.getCards().pop());
 		assertEquals(this.getCards().get(0), stock.getCards().peek());
 	}

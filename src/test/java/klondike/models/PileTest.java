@@ -32,40 +32,40 @@ public class PileTest {
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Pile pile = new PileBuilder().build();
-		pile.push(this.getCards().get(0));
+		pile.addToTop(this.getCards());
 		assertFalse(pile.getCards().empty());
 	}
 
 	@Test
 	public void testPushWithEmpty() {
 		Pile pile = new PileBuilder().build();
-		pile.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), pile.getCards().peek());
+		pile.addToTop(this.getCards());
+		assertEquals(this.getCards(), pile.getTop(2));
 	}
 	
 	@Test
 	public void testPushWithNotEmpty() {
 		Pile pile = new PileBuilder().build();
-		pile.push(this.getCards().get(0));
-		pile.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), pile.getCards().peek());
+		pile.addToTop(this.getCards());
+		assertEquals(this.getCards().get(1), pile.getTop(1).get(0));
 	}
 
 	@Test
 	public void testPopEmpty() {
 		Pile pile = new PileBuilder().build();
-		pile.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), pile.pop());
+		pile.addToTop(this.getCards());
+		assertEquals(this.getCards(),pile.getTop(2));
+		pile.removeTop(2);
 		assertTrue(pile.getCards().empty());
 	}
 	
 	@Test
 	public void testPopNotEmpty() {
 		Pile pile = new PileBuilder().build();
-		pile.push(this.getCards().get(0));
-		pile.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), pile.pop());
-		assertEquals(this.getCards().get(0), pile.getCards().peek());
+		pile.addToTop(this.getCards());
+		assertEquals(this.getCards().get(1), pile.getTop(1).get(0));
+		pile.removeTop(1);
+		assertEquals(this.getCards().get(0), pile.getTop(1).get(0));
 	}
 
 	@Test
@@ -110,9 +110,7 @@ public class PileTest {
 	}
 
 	private void testGetTop(List<Card> cards, Pile pile) {
-		for (Card card : cards) {
-			pile.push(card);
-		}
+		pile.addToTop(cards);
 		assertEquals(cards, pile.getTop(cards.size()));
 	}
 
@@ -120,7 +118,7 @@ public class PileTest {
 	public void testAddToTop() {
 		Pile pile = new PileBuilder().card()
 				.card(new CardBuilder().number(Number.TEN).suit(Suit.DIAMONDS).build()).build();
-		Card topCard = pile.getCards().peek();
+		Card topCard = pile.getTop(1).get(0);
 		List<Card> cards = new CardListBuilder()
 				.card(new CardBuilder().number(Number.NINE).suit(Suit.CLOVERS).facedUp().build())
 				.card(new CardBuilder().number(Number.EIGHT).suit(Suit.DIAMONDS).facedUp().build())
@@ -134,11 +132,14 @@ public class PileTest {
 	public void testRemoveTop() {
 		Pile pile = new PileBuilder().card()
 				.card(new CardBuilder().number(Number.TEN).suit(Suit.DIAMONDS).build()).build();
-		pile.push(new CardBuilder().number(Number.NINE).suit(Suit.CLOVERS).facedUp().build());
-		pile.push(new CardBuilder().number(Number.EIGHT).suit(Suit.DIAMONDS).facedUp().build());
-		pile.push(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build());
+		List<Card> cards = new CardListBuilder()
+				.card(new CardBuilder().number(Number.NINE).suit(Suit.CLOVERS).facedUp().build())
+				.card(new CardBuilder().number(Number.EIGHT).suit(Suit.DIAMONDS).facedUp().build())
+				.card(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build()).build();
+		pile.addToTop(cards);
 		pile.removeTop(4);
-		assertTrue(pile.pop().isFacedUp());
+		assertTrue(pile.getTop(1).get(0).isFacedUp());
+		pile.removeTop(1);
 		assertTrue(pile.getCards().empty());
 	}
 

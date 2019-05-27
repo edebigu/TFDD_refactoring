@@ -27,11 +27,6 @@ public class Pile{
 		this.numberOfFaceUpCards++;
 	}
 
-	public Card pop() {
-		this.numberOfFaceUpCards--;
-		return this.cards.pop();
-	}
-
 	private void flipFirstCard() {
 		assert !this.cards.empty() && this.numberOfFaceUpCards == 0 && !this.cards.peek().isFacedUp();
 		this.cards.peek().flip();

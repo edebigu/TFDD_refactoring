@@ -213,7 +213,7 @@ public class GameTest {
 	}
 
 	private void setEmptyPile(Game game, int position) {
-		game.getPiles().get(position).pop();
+		game.getPiles().get(position).removeTop(1);
 	}
 
 	@Test
@@ -229,7 +229,7 @@ public class GameTest {
 	private Card setPile(Game game, int position, Number number, Suit suit) {
 		Pile pile = game.getPiles().get(position);
 		while (!pile.getCards().empty()) {
-			pile.pop();
+			pile.removeTop(1);
 		}
 		int ordinalNumber = Number.values().length - 1;
 		int ordinalSuit = 0;

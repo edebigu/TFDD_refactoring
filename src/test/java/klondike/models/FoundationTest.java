@@ -42,7 +42,7 @@ public class FoundationTest {
 	public void testPushWithEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.getCards().push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), foundation.peek());
+		assertEquals(this.getCards().get(0), foundation.getCards().peek());
 	}
 	
 	@Test
@@ -50,7 +50,7 @@ public class FoundationTest {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.getCards().push(this.getCards().get(0));
 		foundation.getCards().push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), foundation.peek());
+		assertEquals(this.getCards().get(1), foundation.getCards().peek());
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class FoundationTest {
 		foundation.getCards().push(this.getCards().get(0));
 		foundation.getCards().push(this.getCards().get(1));
 		assertEquals(this.getCards().get(1), foundation.getCards().pop());
-		assertEquals(this.getCards().get(0), foundation.peek());
+		assertEquals(this.getCards().get(0), foundation.getCards().peek());
 	}
 	
 	@Test 

@@ -20,7 +20,7 @@ public class Foundation  {
         assert card != null;
         return card.getSuit() == this.suit &&
                 (card.getNumber() == Number.AS ||
-                        (!this.empty() && card.isNextTo(this.peek())));
+                        (!this.empty() && card.isNextTo(this.cards.peek())));
     }
 
     public Suit getSuit() {
@@ -30,11 +30,7 @@ public class Foundation  {
     public boolean empty() {
         return this.cards.empty();
     }
-    
-    public Card peek() {
-        return this.cards.peek();
-    }
-    
+     
     
 	public Stack<Card> getCards() {
 		return cards;

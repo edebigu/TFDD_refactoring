@@ -155,7 +155,7 @@ public class GameTest {
 		Game game = new Game();
 		Card card = this.setWaste(game, Number.AS);
 		assertEquals(null, game.moveFromWasteToFoundation(card.getSuit()));
-		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
+		assertEquals(card, game.getFoundations().get(card.getSuit()).getCards().peek());
 		assertTrue(game.getWaste().empty());
 	}
 
@@ -222,7 +222,7 @@ public class GameTest {
 		Suit suit = Suit.HEARTS;
 		Card card = this.setPile(game, 0, Number.AS, suit);
 		assertEquals(null, game.moveFromPileToFoundation(0,suit ));
-		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
+		assertEquals(card, game.getFoundations().get(card.getSuit()).getCards().peek());
 		assertTrue(game.getWaste().empty());
 	}
 

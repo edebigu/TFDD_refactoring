@@ -97,7 +97,7 @@ public class Game {
         if (foundation.empty()) {
             return Error.EMPTY_FOUNDATION;
         }
-        Card card = foundation.peek();
+        Card card = foundation.getCards().peek();
         if (!pile.fitsIn(card)) {
             return Error.NO_FIT_PILE;
         }

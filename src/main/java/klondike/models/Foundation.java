@@ -39,10 +39,6 @@ public class Foundation  {
         this.cards.push(card);
     }
     
-    public Card pop() {
-        return this.cards.pop();
-    }
-    
 	public Stack<Card> getCards() {
 		return cards;
 	}

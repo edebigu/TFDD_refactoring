@@ -101,7 +101,7 @@ public class Game {
         if (!pile.fitsIn(card)) {
             return Error.NO_FIT_PILE;
         }
-        pile.addToTop(Arrays.asList(foundation.pop()));
+        pile.addToTop(Arrays.asList(foundation.getCards().pop()));
         return null;
     }
 

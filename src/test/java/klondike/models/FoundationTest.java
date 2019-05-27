@@ -57,7 +57,7 @@ public class FoundationTest {
 	public void testPopEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.push(this.getCards().get(0));
-		assertEquals(this.getCards().get(0), foundation.pop());
+		assertEquals(this.getCards().get(0), foundation.getCards().pop());
 		assertTrue(foundation.empty());
 	}
 	
@@ -66,7 +66,7 @@ public class FoundationTest {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.push(this.getCards().get(0));
 		foundation.push(this.getCards().get(1));
-		assertEquals(this.getCards().get(1), foundation.pop());
+		assertEquals(this.getCards().get(1), foundation.getCards().pop());
 		assertEquals(this.getCards().get(0), foundation.peek());
 	}
 	

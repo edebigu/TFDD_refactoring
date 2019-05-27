@@ -110,7 +110,7 @@ public class Game {
         assert suit != null;
         Pile pile = this.piles.get(pileIndex);
         Foundation foundation = this.foundations.get(suit);
-        if (pile.empty()) {
+        if (pile.getCards().empty()) {
             return Error.EMPTY_PILE;
         }
         Card card = pile.getTop(1).get(0);

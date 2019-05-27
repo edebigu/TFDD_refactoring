@@ -20,7 +20,7 @@ public class PileView {
 
     public void writeln() {
         IO.write(Message.PILE_TITLE.replace(Message.PILE_TAG, Integer.toString(this.pile.getNumber())));
-        if (this.pile.empty()) {
+        if (this.pile.getCards().empty()) {
             IO.writeln(Message.EMPTY);
         } else {
             IO.writeln();

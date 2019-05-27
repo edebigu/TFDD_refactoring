@@ -70,10 +70,6 @@ public class Pile{
 		return this.numberOfFaceUpCards;
 	}
 
-	public boolean empty() {
-		return this.cards.empty();
-	}
-
 	public Stack<Card> getCards() {
 		return this.cards;
 	}

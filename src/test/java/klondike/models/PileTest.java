@@ -26,14 +26,14 @@ public class PileTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		Pile pile = new PileBuilder().build();
-		assertTrue(pile.empty());
+		assertTrue(pile.getCards().empty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Pile pile = new PileBuilder().build();
 		pile.push(this.getCards().get(0));
-		assertFalse(pile.empty());
+		assertFalse(pile.getCards().empty());
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class PileTest {
 		Pile pile = new PileBuilder().build();
 		pile.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), pile.pop());
-		assertTrue(pile.empty());
+		assertTrue(pile.getCards().empty());
 	}
 	
 	@Test
@@ -139,7 +139,7 @@ public class PileTest {
 		pile.push(new CardBuilder().number(Number.SEVEN).suit(Suit.PIKES).facedUp().build());
 		pile.removeTop(4);
 		assertTrue(pile.pop().isFacedUp());
-		assertTrue(pile.empty());
+		assertTrue(pile.getCards().empty());
 	}
 
 }

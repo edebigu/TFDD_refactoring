@@ -46,7 +46,7 @@ public class GameTest {
 				pile.removeTop(1);
 				assertTrue(card.isFacedUp());
 			}
-			assertTrue(pile.empty());
+			assertTrue(pile.getCards().empty());
 		}
 	}
 
@@ -208,7 +208,7 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.SEVEN);
 		this.setEmptyPile(game, 0);
 		assertEquals(Error.NO_FIT_PILE, game.moveFromWasteToPile(0));
-		assertTrue(game.getPiles().get(0).empty());
+		assertTrue(game.getPiles().get(0).getCards().empty());
 		assertEquals(card, game.getWaste().peek());
 	}
 
@@ -228,7 +228,7 @@ public class GameTest {
 
 	private Card setPile(Game game, int position, Number number, Suit suit) {
 		Pile pile = game.getPiles().get(position);
-		while (!pile.empty()) {
+		while (!pile.getCards().empty()) {
 			pile.pop();
 		}
 		int ordinalNumber = Number.values().length - 1;

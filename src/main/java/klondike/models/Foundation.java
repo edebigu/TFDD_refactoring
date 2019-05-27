@@ -20,15 +20,11 @@ public class Foundation  {
         assert card != null;
         return card.getSuit() == this.suit &&
                 (card.getNumber() == Number.AS ||
-                        (!this.empty() && card.isNextTo(this.cards.peek())));
+                        (!this.cards.empty() && card.isNextTo(this.cards.peek())));
     }
 
     public Suit getSuit() {
         return this.suit;
-    }
-    
-    public boolean empty() {
-        return this.cards.empty();
     }
      
     

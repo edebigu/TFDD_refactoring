@@ -28,14 +28,14 @@ public class FoundationTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
-		assertTrue(foundation.empty());
+		assertTrue(foundation.getCards().empty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.getCards().push(this.getCards().get(0));
-		assertFalse(foundation.empty());
+		assertFalse(foundation.getCards().empty());
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class FoundationTest {
 		Foundation foundation = new FoundationBuilder().build();
 		foundation.getCards().push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), foundation.getCards().pop());
-		assertTrue(foundation.empty());
+		assertTrue(foundation.getCards().empty());
 	}
 	
 	@Test

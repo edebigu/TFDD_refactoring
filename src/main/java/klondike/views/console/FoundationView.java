@@ -15,7 +15,7 @@ public class FoundationView {
     public void writeln() {
         IO.writetab();
         IO.write(this.foundation.getSuit().toString().toLowerCase() + ": ");
-        if (this.foundation.empty()) {
+        if (this.foundation.getCards().empty()) {
             IO.write(Message.EMPTY);
         } else {
             IO.write(Message.FOUNDATION_FORMAT.replace(Message.NUMBER_TAG, this.foundation.getCards().peek().getNumber().toString().toLowerCase()));

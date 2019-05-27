@@ -94,7 +94,7 @@ public class Game {
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
         Foundation foundation = this.foundations.get(suit);
         Pile pile = this.piles.get(pileIndex);
-        if (foundation.empty()) {
+        if (foundation.getCards().empty()) {
             return Error.EMPTY_FOUNDATION;
         }
         Card card = foundation.getCards().peek();

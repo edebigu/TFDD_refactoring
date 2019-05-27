@@ -33,7 +33,7 @@ public class GameTest {
 	private void testFoundationsClear(Game game) {
 		Map<Suit, Foundation> foundations = game.getFoundations();
 		for (Suit suit : Suit.values()) {
-			assertTrue(foundations.get(suit).empty());
+			assertTrue(foundations.get(suit).getCards().empty());
 		}
 	}
 
@@ -171,7 +171,7 @@ public class GameTest {
 		Suit suit = Suit.PIKES;
 		assertEquals(Error.EMPTY_WASTE, game.moveFromWasteToFoundation(suit));
 		assertTrue(game.getWaste().empty());
-		assertTrue(game.getFoundations().get(suit).empty());
+		assertTrue(game.getFoundations().get(suit).getCards().empty());
 	}
 
 	@Test
@@ -180,7 +180,7 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.FIVE);
 		assertEquals(Error.NO_FIT_FOUNDATION, game.moveFromWasteToFoundation(card.getSuit()));
 		assertEquals(card, game.getWaste().peek());
-		assertTrue(game.getFoundations().get(card.getSuit()).empty());
+		assertTrue(game.getFoundations().get(card.getSuit()).getCards().empty());
 	}
 
 	@Test
